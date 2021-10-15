@@ -19,6 +19,7 @@ import { ProductsComponent } from './pages/products/products.component';
 import { ProductComponent } from './pages/product/product.component';
 import { SearchComponent } from './pages/search/search.component';
 import { Error404Component } from './pages/error404/error404.component';
+import { HomeBannerComponent } from './pages/home/home-banner/home-banner.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { Error404Component } from './pages/error404/error404.component';
     ProductsComponent,
     ProductComponent,
     SearchComponent,
-    Error404Component
+    Error404Component,
+    HomeBannerComponent
   ],
   imports: [
     BrowserModule,
