@@ -14,6 +14,11 @@ import { HeaderPromotionComponent } from './modules/header-promotion/header-prom
 import { HeaderMobileComponent } from './modules/header-mobile/header-mobile.component';
 import { NewletterComponent } from './modules/newletter/newletter.component';
 import { FooterComponent } from './modules/footer/footer.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { ProductComponent } from './pages/product/product.component';
+import { SearchComponent } from './pages/search/search.component';
+import { Error404Component } from './pages/error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,12 @@ import { FooterComponent } from './modules/footer/footer.component';
     HeaderPromotionComponent,
     HeaderMobileComponent,
     NewletterComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    ProductsComponent,
+    ProductComponent,
+    SearchComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
