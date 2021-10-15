@@ -71,29 +71,20 @@ Header Mobile
                   <ul class="ps-list--categories">
 
                       <li
-                      *ngFor="let category of categories;"
+                      *ngFor="let category of categories; let lastIndex = last"
                       class="current-menu-item menu-item-has-children">
 
-                        <a href="shop-default.html">{{category.name}}</a>
+                        <a routerLink="products/{{category.url}}"><strong>{{category.name}}</strong></a>
 
                         <span class="sub-toggle">
                           <i class="fa fa-angle-down"></i>
                         </span>
 
-                        <ul class="sub-menu">
-                            <li class="current-menu-item "><a href="shop-default.html">Womens</a>
-                            </li>
-                            <li class="current-menu-item "><a href="shop-default.html">Mens</a>
-                            </li>
-                            <li class="current-menu-item "><a href="shop-default.html">Bags</a>
-                            </li>
-                            <li class="current-menu-item "><a href="shop-default.html">Sunglasses</a>
-                            </li>
-                            <li class="current-menu-item "><a href="shop-default.html">Accessories</a>
-                            </li>
-                            <li class="current-menu-item "><a href="shop-default.html">Kid's Fashion</a>
-                            </li>
+                        <ul class="sub-menu" [attr.category]="category.name">
+
                         </ul>
+
+                      {{ lastIndex ? callback() : "" }}
 
                       </li>
 
