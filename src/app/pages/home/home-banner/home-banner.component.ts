@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Path } from '../../../config';
+import { OwlCarouselConfig } from '../../../functions';
+
+
 import { ProductsService } from '../../../services/products.service';
 
 @Component({
@@ -13,11 +16,14 @@ export class HomeBannerComponent implements OnInit {
   banner_home:Array<any> = [];
   category:Array<any> = [];
   url:Array<any> = [];
-
+  render:Boolean = true;
+  preload:Boolean = false;
 
   constructor(private productService: ProductsService) { }
 
   ngOnInit(): void {
+
+    this.preload = true;
 
     let index = 0;
 
@@ -62,11 +68,29 @@ export class HomeBannerComponent implements OnInit {
           this.category.push(resp[i].category)
           this.url.push(resp[i].url)
 
+          this.preload = false;
+
         }
 
       })
 
     })
+
+  }
+
+  /*==================================================
+  Función que nos avisa cuando finaliza el renderizado de Angular
+  ==================================================*/
+
+  callback() {
+
+    if(this.render) {
+
+      this.render = false;
+
+      OwlCarouselConfig.fnc()
+
+    }
 
   }
 

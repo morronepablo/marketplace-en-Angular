@@ -12,6 +12,7 @@ export class HeaderPromotionComponent implements OnInit {
   path:String = Path.url;
   top_banner:Object = null;
   category:Object = null;
+  url:Object = null;
   preload:Boolean = false;
 
   constructor(private productService: ProductsService) { }
@@ -51,6 +52,7 @@ export class HeaderPromotionComponent implements OnInit {
       this.top_banner = JSON.parse(resp[Object.keys(resp)[index]].top_banner);
 
       this.category = resp[Object.keys(resp)[index]].category;
+      this.url = resp[Object.keys(resp)[index]].url;
 
       this.preload = false;
 
