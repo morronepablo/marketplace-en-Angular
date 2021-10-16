@@ -9,7 +9,9 @@
 
         <div
         *ngFor="let slide of banner_home; let i = index; let lastIndex = last"
-        class="ps-banner--market-4">
+        class="ps-banner--market-4"
+        [attr.data-background]="path+'img/products/'+category[i]+'/horizontal/'+slide['IMG tag']"
+        >
           <img src="{{path}}img/products/{{category[i]}}/horizontal/{{ slide['IMG tag'] }}" alt="">
             <div class="ps-banner__content">
                 <h4>{{ slide["H4 tag"] }}</h4>
