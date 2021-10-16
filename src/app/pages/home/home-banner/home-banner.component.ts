@@ -10,6 +10,10 @@ import { ProductsService } from '../../../services/products.service';
 export class HomeBannerComponent implements OnInit {
 
   path:String = Path.url;
+  banner_home:Array<any> = [];
+  category:Array<any> = [];
+  url:Array<any> = [];
+
 
   constructor(private productService: ProductsService) { }
 
@@ -50,15 +54,20 @@ export class HomeBannerComponent implements OnInit {
       this.productService.getLimitData(Object.keys(resp)[index], 5)
       .subscribe(resp => {
 
-        console.log("resp ", resp);
+        let i;
 
+        for(i in resp) {
+
+          this.banner_home.push(JSON.parse(resp[i].horizontal_slider))
+          this.category.push(resp[i].category)
+          this.url.push(resp[i].url)
+
+        }
 
       })
 
-
-
-
     })
+
   }
 
 }
