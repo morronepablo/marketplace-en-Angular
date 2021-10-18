@@ -727,7 +727,7 @@ export class AppComponent implements OnInit {
 
         $(function() {
             backgroundImage();
-            owlCarouselConfig();
+            // owlCarouselConfig();
             siteToggleAction();
             subMenuToggle();
             masonry('.ps-masonry');
@@ -750,7 +750,7 @@ export class AppComponent implements OnInit {
             progressBar();
             customScrollbar();
             select2Cofig();
-            carouselNavigation();
+            // carouselNavigation();
             dateTimePicker();
             $('[data-toggle="tooltip"]').tooltip();
         });

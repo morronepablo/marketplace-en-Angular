@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Path } from '../../../config';
+import { OwlCarouselConfig, CarouselNavigation } from '../../../functions';
 
 import { ProductsService } from '../../../services/products.service';
+
+declare var JQuery:any;
+declare var $:any;
 
 
 @Component({
@@ -13,6 +17,8 @@ export class HomeHotTodayComponent implements OnInit {
 
   path:String = Path.url;
   indexes:Array<any> = [];
+  products:Array<any> = [];
+  render:Boolean = true;
 
   constructor(private productService: ProductsService) { }
 
@@ -44,6 +50,8 @@ export class HomeHotTodayComponent implements OnInit {
 
         })
 
+        this.products.push(resp[i]);
+
       }
 
       /*==================================================
@@ -64,7 +72,6 @@ export class HomeHotTodayComponent implements OnInit {
 
           this.indexes.push(i)
 
-          console.log("indexes ", this.indexes);
         }
 
 
@@ -75,5 +82,24 @@ export class HomeHotTodayComponent implements OnInit {
     })
 
   }
+
+  /*==================================================
+  Función que nos avisa cuando finaliza el renderizado de Angular
+  ==================================================*/
+
+  callback() {
+
+    if(this.render) {
+
+      this.render = false;
+
+      OwlCarouselConfig.fnc();
+      CarouselNavigation.fnc();
+
+    }
+
+  }
+
+
 
 }
